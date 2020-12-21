@@ -1,0 +1,33 @@
+# Use PHP 7.3 by replacing "php72" below with "php73"
+runtime: php72
+# Defaults to "serve index.php" and "serve public/index.php". Can be used to
+# serve a custom PHP front controller (e.g. "serve backend/index.php") or to
+# run a long-running PHP script as a worker process (e.g. "php worker.php").
+#
+# entrypoint: serve index.php
+env_variables:
+  CLOUD_SQL_USERNAME: YOUR-DB-USERNAME
+  CLOUD_SQL_PASSWORD: YOUR-DB-PASSWORD
+  CLOUD_SQL_DATABASE_NAME: YOUR-DB-NAME
+  CLOUD_SQL_CONNECTION_NAME: YOUR-CONN-NAME
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /assets
+  static_dir: assets
+
+- url: /img
+  static_dir: img
+
+- url: /(.*)
+  static_files: /\1
+  upload: /(.*)
