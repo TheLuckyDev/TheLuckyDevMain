@@ -2,6 +2,5 @@
 .php_cs.cache
 backup/*
 !backup/.htaccess
-includes/config.inc.php
 *node_modules
 tmp/*
