@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module type="plugin" name="eu_cookie">
+	<title>EU Cookie Policy banner</title>
+	<summary>Plugin shows banner with information that this website is using cookies.</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>1.2.0</version>
+	<date>2017-03-07</date>
+	<compatibility>4.1</compatibility>
+
+	<configgroup name="eu_cookie">EU Cookie Policy</configgroup>
+	<config group="eu_cookie" type="divider" name="eu_cookie_plugin2">Styles</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_position" values="top,bottom" description="Position">bottom</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_theme" values="dark,light" description="Theme">dark</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_openeffect" values="fade,slideUp,slideDown,slideLeft,slideRight" description="Open effect">slideUp</config>
+	<config group="eu_cookie" type="text" name="eu_cookie_openeffectduration" description="Open effect duration (ms)">600</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_openeffecteasing" values="swing,linear" description="Open effect easing">swing</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_closeeffect" values="fade,slideUp,slideDown,slideLeft,slideRight" description="Close effect">slideDown</config>
+	<config group="eu_cookie" type="text" name="eu_cookie_closeeffectduration" description="Close effect duration (ms)">600</config>
+	<config group="eu_cookie" type="select" name="eu_cookie_closeeffecteasing" values="swing,linear" description="Close effect easing">swing</config>
+
+	<phrases>
+		<phrase category="frontend" key="eu_cookie_text">This website uses cookies.</phrase>
+		<phrase category="frontend" key="eu_cookie_policylinktext">More info</phrase>
+		<phrase category="frontend" key="eu_cookie_btntext">I understand</phrase>
+	</phrases>
+
+	<hooks>
+		<hook name="smartyFrontAfterHeadSection" type="smarty">
+			<![CDATA[
+{ia_print_css files="_IA_URL_modules/eu_cookie/templates/front/css/divascookies, _IA_URL_modules/eu_cookie/templates/front/css/divascookies_style_{$core.config.eu_cookie_theme}_{$core.config.eu_cookie_position}"}
+{ia_print_js files="_IA_URL_modules/eu_cookie/js/frontend/jquery.divascookies-0.3.min"}
+{ia_add_js}
+$(function()
+{
+	$.DivasCookies({
+		bannerText: _t('eu_cookie_text'),
+		acceptButtonText: _t('eu_cookie_btntext'),
+		cookiePolicyLink: '{$smarty.const.IA_URL}policy/',
+		cookiePolicyLinkText: _t('eu_cookie_policylinktext'),
+		openEffect: '{$core.config.eu_cookie_openeffect}',
+		openEffectDuration: {$core.config.eu_cookie_openeffectduration},
+		openEffectEasing: '{$core.config.eu_cookie_openeffecteasing}',
+		closeEffect: '{$core.config.eu_cookie_closeeffect}',
+		closeEffectDuration: {$core.config.eu_cookie_closeeffectduration},
+		closeEffectEasing: '{$core.config.eu_cookie_closeeffecteasing}'
+	});
+});
+{/ia_add_js}
+			]]>
+		</hook>
+	</hooks>
+</module>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin name="iafontawesome">
+	<title>iaFont Awesome</title>
+	<summary>iaFont Awesome — Creates content with all Font Awesome icons style (Based in the plugin iaBootstrap)</summary>
+	<author>Olair Marcos</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>1.3.0</version>
+	<date>2015-08-30</date>
+	<status>active</status>
+	<compatibility>3.1.0</compatibility>
+	
+	<hooks>
+		<hook name="smartyFrontAfterHeadSection" type="smarty">
+			<![CDATA[
+	{ia_add_media files='css:_IA_URL_plugins/iafontawesome/font-awesome/css/font-awesome.min'}
+			]]>
+		</hook>
+	</hooks>
+
+	<pages>
+		<page name="iafontawesome" menus="main,bottom" status="active" url="iafontawesome/" nofollow="0">iaFont Awesome</page>
+	</pages>
+
+	<blocks>
+		<block title="Contents" 
+			   name="iafontawesome_nav" 
+			   position="left" 
+			   sticky="0" 
+			   header="1"
+			   pages="iafontawesome"
+			   order="0"
+			   type="smarty"
+			   filename="plugin:iafontawesome:block.iafontawesome-nav.tpl">
+			<![CDATA[
+			]]>
+		</block>
+	</blocks>
+
+	<phrases>
+		<phrase key="iafontawesome_basic_icons" category="frontend"><![CDATA[<i class="fa fa-check-square-o"></i> Basic Icons]]></phrase>
+		<phrase key="iafontawesome_larger_icons" category="frontend"><![CDATA[<i class="fa fa-th-large"></i> Larger Icons]]></phrase>
+		<phrase key="iafontawesome_fixed_width_icons" category="frontend"><![CDATA[<i class="fa fa-text-width"></i> Fixed Width Icons]]></phrase>
+		<phrase key="iafontawesome_list_icons" category="frontend"><![CDATA[<i class="fa fa-list"></i> List Icons]]></phrase>
+		<phrase key="iafontawesome_bordered_pulled_icons" category="frontend"><![CDATA[<i class="fa fa-quote-left fa-border"></i> Bordered Pulled Icons]]></phrase>
+		<phrase key="iafontawesome_spinning_icons" category="frontend"><![CDATA[<i class="fa fa-refresh fa-spin"></i> Spinning Icons]]></phrase>
+
+		<phrase key="iafontawesome_ia_rotated_flipped" category="frontend"><![CDATA[<i class="fa fa-shield"></i> Rotated Flipped]]></phrase>
+		<phrase key="iafontawesome_ia_stacked_icons" category="frontend"><![CDATA[<i class="fa fa-square-o"></i> Stacked Icons]]></phrase>
+		<phrase key="iafontawesome_ia_bootstrap_exemples" category="frontend"><![CDATA[<i class="fa fa-bold"></i> Bootstrap Examples]]></phrase>
+		<phrase key="iafontawesome_ia_custom_css" category="frontend"><![CDATA[<i class="fa fa-css3"></i> Custom CSS]]></phrase>
+		<phrase key="iafontawesome_icons" category="frontend"><![CDATA[<i class="fa fa-flag"></i> Icons All]]></phrase>
+	</phrases>
+
+</plugin>

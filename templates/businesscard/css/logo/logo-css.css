@@ -1,0 +1,63 @@
+/*
+*
+* LOGO STYLES
+*
+*/
+.logo{
+    display: block;
+    width: 100%;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo.android{
+    background-image: url('../../logo/android.svg.png');
+}
+
+.logo.nintendo{
+    background-image: url('../../logo/nintendo.png');
+}
+
+.logo.unity{
+    background-image: url('../../logo/unity.png');
+}
+
+.logo.webgl{
+    background-image: url('../../logo/webgl.svg');
+}
+
+.logo.apple{
+    background-image: url('../../logo/apple.webp');
+}
+
+.logo.facebook{
+    background-image: url('../../logo/facebook.png');
+}
+
+.logo.firefoxos{
+    background-image: url('../../logo/firefoxos.png');
+}
+
+.logo.sony{
+    background-image: url('../../logo/sony.png');
+}
+
+.logo.linux{
+    background-image: url('../../logo/linux.svg');
+}
+
+.logo.steam{
+    background-image: url('../../logo/steam.webp');
+}
+
+.logo.google{
+    background-image: url('../../logo/google.png');
+}
+
+.logo.microsoft{
+    background-image: url('../../logo/microsoft.png');
+}

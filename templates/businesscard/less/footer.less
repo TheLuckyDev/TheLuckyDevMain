@@ -1,0 +1,77 @@
+
+//
+// Footer blocks
+// --------------------------------------------------
+
+.footer-blocks {
+	padding: @vertical-rhythm*2 0;
+	background: fade(@footer-bg, 95%);
+	color: fade(#fff, 50%);
+	// color: lighten(@brand-dark, 24%);
+
+	.box {
+
+		&__caption {
+			color: @accent-color;
+			border-bottom: 0;
+			position: relative;
+
+			&::after {
+				display: block;
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 30px;
+				height: 2px;
+				background: @accent-color;
+			}
+		}
+
+		&__content {
+			color: fade(#fff, 50%);
+		}
+	}
+}
+
+.nav-footer {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+//
+// Footer
+// --------------------------------------------------
+
+.footer {
+	padding: @vertical-rhythm/2 0;
+	background: @footer-bg;
+	color: fade(#fff, 20%);
+	position: relative;
+
+	a,
+	a:focus {
+		color: fade(#fff, 30%);
+		background: none;
+
+		&:hover {
+			color: fade(#fff, 45%);
+		}
+	}
+
+	.social {
+		float: right;
+
+		a {
+			float: left;
+			margin-left: 10px;
+		}
+	}
+}
+
+.copyright {
+	margin: 0;
+	float: left;
+}

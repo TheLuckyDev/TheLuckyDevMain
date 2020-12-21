@@ -1,0 +1,274 @@
+/* CSS Document */
+/* Feuille de style - Copyright BDE Estaca */
+
+/* Général 
+-------------------------------------------------------- */
+
+body {
+  margin: auto;
+	background: #f8f8f8;
+	padding-top: 15px;
+	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 80%;
+	line-height: 1.6em;
+  color: #444;
+  
+  overflow:hidden;  
+  overflow-x: false;  
+  overflow-y: auto;  
+}
+
+a {
+	text-decoration: none; 
+	color: #0fa2db;
+  font-weight: bold;
+}
+
+a:visited {
+	color: #0fa2db;
+	font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline; 
+  font-weight: bold;
+  color: #0fa2db;
+}
+
+a img{
+	border: 0px;
+}
+
+input, select,textarea {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 100%;   
+  margin: 1px;
+  padding: 3px;
+	background-color: #FFF;
+	color: #444;
+  border: 1px solid #CCC;
+}
+
+p {
+   text-align: justify;
+}
+
+h1, h2, h3 {
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold; 
+	color: #444;
+	padding: 20px;
+  background: #f0f0f0 no-repeat center top;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-position: outside;
+  margin: 0px; 
+  padding : 5px; 
+  padding-left: 20px;
+}
+
+li {
+  list-style-type: square;
+  padding: 2px;
+}
+
+.error {
+  background-color:#F00;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.valid {
+  background-color:#0F0;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;  
+}
+
+.bordered {
+  border: 1px solid #BBB;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.big {
+  font-size: 120%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.justified {
+  text-align: justify;
+}
+
+.padded {
+  padding: 10px;
+}
+
+
+/* Infobulles home-made 
+-------------------------------------------------------- */
+
+a.info {
+  position: relative;
+  text-decoration: none;
+}
+
+a.info:hover {
+  text-decoration: none;
+}
+
+a.info span {
+  display: none;
+  font-size: 90%;
+  position: absolute;
+  top: 2em;
+  left: 1em;
+  font-weight: bold;
+  background-color: #FFF;
+  text-align: left;
+  color: #444;
+  padding: 2px;
+  border: 2px solid #0fa2db;
+  width: 190px;
+}
+
+a.info:hover {
+  background: none; /* correction d'un bug IE */
+  z-index: 500;
+}
+
+a.info:hover span {
+  display: inline;
+}
+
+/* Contenu
+-------------------------------------------------------- */
+
+#content {
+  background: #f8f8f8;
+  padding: 30px;
+  padding-top: 25px;
+  text-align: justify;
+}
+
+
+/* Footer 
+-------------------------------------------------------- */
+
+#footer{    
+  margin: auto;
+  text-align: center;
+  font-size: 80%;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  background: #f8f8f8 no-repeat bottom center;
+}
+
+#footer a {
+  color: #444;
+  font-weight: normal;
+}
+
+
+/* Popup 
+-------------------------------------------------------- */
+
+.close {
+	position: absolute;
+  top: 2px;
+  right: 2px;    
+  width: 20px;
+	height: 20px;
+	background: url("../images/close.jpg") #FFF no-repeat center center;
+}
+
+.close:hover {
+	background: url("../images/close2.jpg") #FFF no-repeat center center;
+}
+
+#fondPopUp {
+  z-index: 2000;
+	background-color: #000;
+	
+	display: none; 
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+}
+
+#filePopUp {
+  z-index: 2001;
+	background-color: #FFF;
+	border: 5px solid #0fa2db;
+	padding: 15px;
+	padding-top: 30px;
+	
+	text-align: center;
+
+	display: none; 
+  position: absolute;
+}
+
+#fileContent {
+	text-align: center;	
+	overflow:hidden;  
+  overflow-x: auto;  
+  overflow-y: auto;  
+}
+
+
+/* Admin 
+-------------------------------------------------------- */
+
+.rightclick, #rightclickmenu {
+  font-weight: bold;
+  background-color: #FFF;
+  text-align: left;
+  color: #444;
+  padding: 2px;
+  border: 2px solid #0fa2db;
+}
+
+.rightclick li , #rightclickmenu li {
+  list-style: none;
+  margin-left: -15px;
+  background-color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.rightclick a , #rightclickmenu a, .folder_element a {
+  color: #444;
+  text-decoration: none;
+}
+
+.rightclick li:hover, #rightclickmenu li:hover {
+  background-color: #def;
+}
+
+.folder_element {
+  background-color: #f0f0f0;
+}
+
+.folder_element img {
+  background-color: #fff;
+}
+
+.folder_element:hover {
+  background-color: #def;
+}
+
+#list {
+  float: right;
+  padding-right: 30px;
+}
