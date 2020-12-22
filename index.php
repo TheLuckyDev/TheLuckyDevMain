@@ -131,7 +131,7 @@
 
 if(!$connection)
 {
-    $_SESSION['errormsg'] = "<div style='padding-left: 50px;color:#FF0000'>Cannot connect to specfied database!</div>";
+    echo "<div style='padding-left: 50px;color:#FF0000'>Cannot connect to specfied database!</div>";
 //    header("Location: install.php");
 }else{
     echo('Connection Successful!');
