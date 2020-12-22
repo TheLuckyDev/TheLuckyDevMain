@@ -125,8 +125,7 @@
 /**
  *  @param $conn_config array driver-specific options for PDO
  */
-function init_unix_database_connection(array $conn_config): PDO
-{
+
     $username = getenv('CLOUD_SQL_USERNAME');
     $password = getenv('CLOUD_SQL_PASSWORD');
     $db_name = getenv('CLOUD_SQL_DATABASE_NAME');
@@ -180,6 +179,3 @@ function init_unix_database_connection(array $conn_config): PDO
                 $e
         );
     }
-
-    return $conn;
-}
