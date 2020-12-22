@@ -55,7 +55,7 @@ class iaLanguage
         $iaCore = iaCore::instance();
 
         echo $iaCore;
-        echo $iaCore->iaDb;
+        echo "IADB : " . $iaCore->iaDb;
 
         // set list of available languages
         $iaCore->languages = $iaCore->iaDb->assoc(
