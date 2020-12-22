@@ -4,13 +4,23 @@
  * Config file generated on 09 August 2020 23:27:48
  */
 
-define('INTELLI_CONNECT', getenv('CLOUD_SQL_CONNECTION_NAME'));
-define('INTELLI_DBHOST', getenv('CLOUD_SQL_DATABASE_HOST') );
-define('INTELLI_DBUSER', getenv('CLOUD_SQL_USERNAME'));
-define('INTELLI_DBPASS',  getenv('CLOUD_SQL_PASSWORD'));
-define('INTELLI_DBNAME',  getenv('CLOUD_SQL_DATABASE_NAME'));
+//define('INTELLI_CONNECT', getenv('CLOUD_SQL_CONNECTION_NAME'));
+//define('INTELLI_DBHOST', getenv('CLOUD_SQL_DATABASE_HOST') );
+//define('INTELLI_DBUSER', getenv('CLOUD_SQL_USERNAME'));
+//define('INTELLI_DBPASS',  getenv('CLOUD_SQL_PASSWORD'));
+//define('INTELLI_DBNAME',  getenv('CLOUD_SQL_DATABASE_NAME'));
+//define('INTELLI_DBNAME_COMMUNITY', 'subrion');
+//define('INTELLI_DBPORT', '3306');
+//define('INTELLI_DBPREFIX', 'sbr421_');
+//define('THELUCKYDEV_COMMUNITY_URL', 'community.theluckydev');
+
+define('INTELLI_CONNECT', 'mysqli');
+define('INTELLI_DBHOST', 'localhost');
+define('INTELLI_DBUSER', 'root');
+define('INTELLI_DBPASS', '');
+define('INTELLI_DBNAME', 'theluckydev_main');
 define('INTELLI_DBNAME_COMMUNITY', 'subrion');
-define('INTELLI_DBPORT', '3306');
+define('INTELLI_DBPORT', '3308');
 define('INTELLI_DBPREFIX', 'sbr421_');
 define('THELUCKYDEV_COMMUNITY_URL', 'community.theluckydev');
 

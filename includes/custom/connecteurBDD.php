@@ -37,7 +37,7 @@ class connecteurBDD
         // mysqli
         try {
             //Connection BDD 1
-            $this->connectMainBDD = new mysqli(INTELLI_DBHOST, INTELLI_DBUSER, INTELLI_DBPASS, INTELLI_DBNAME_COMMUNITY, INTELLI_DBPORT);
+            $this->connectMainBDD = new mysqli(null, INTELLI_DBUSER, INTELLI_DBPASS, INTELLI_DBNAME_COMMUNITY, null, INTELLI_CONNECT);
             //Connection BDD 2
 //            $this->connectCommunityBDD = mysqli_real_connect(INTELLI_DBHOST, "root", "", INTELLI_DBNAME);
 

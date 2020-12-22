@@ -66,8 +66,8 @@ class iaDb extends PDO implements iaInterfaceDbAdapter
     protected function _connect()
     {
         try {
-            $dsn = 'mysql:host=' . INTELLI_DBHOST . ';dbname=' . INTELLI_DBNAME;
-            $this->_PDO = new PDO($dsn, INTELLI_DBUSER, INTELLI_DBPASS);
+//            $dsn = 'mysql:host=' . INTELLI_DBHOST . ';dbname=' . INTELLI_DBNAME;
+            $this->_PDO = new PDO(INTELLI_CONNECT, INTELLI_DBUSER, INTELLI_DBPASS);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
