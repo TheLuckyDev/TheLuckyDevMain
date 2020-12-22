@@ -58,11 +58,11 @@ class iaLanguage
         echo "IADB : " . $iaCore->iaDb;
 
         // set list of available languages
-        $iaCore->languages = $iaCore->iaDb->assoc(
-            self::$_columns,
-            iaDb::EMPTY_CONDITION . ' ORDER BY `order` ASC',
-            self::$_languagesTable
-        );
+//        $iaCore->languages = $iaCore->iaDb->assoc(
+//            self::$_columns,
+//            iaDb::EMPTY_CONDITION . ' ORDER BY `order` ASC',
+//            self::$_languagesTable
+//        );
     }
 
     public static function get($key, $default = null)
