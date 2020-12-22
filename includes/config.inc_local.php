@@ -5,10 +5,10 @@
  */
 
 define('INTELLI_CONNECT', 'mysqli');
-define('INTELLI_DBHOST',  getenv('CLOUDSQL_DSN'));
-define('INTELLI_DBUSER', getenv('CLOUDSQL_USER'));
-define('INTELLI_DBPASS',  getenv('CLOUDSQL_USER'));
-define('INTELLI_DBNAME',  getenv('CLOUDSQL_DB'));
+define('INTELLI_DBHOST', 'localhost');
+define('INTELLI_DBUSER', 'root');
+define('INTELLI_DBPASS', '');
+define('INTELLI_DBNAME', 'theluckydev_main');
 define('INTELLI_DBNAME_COMMUNITY', 'subrion');
 define('INTELLI_DBPORT', '3308');
 define('INTELLI_DBPREFIX', 'sbr421_');
