@@ -127,7 +127,7 @@
 	$inst = getenv('CLOUD_SQL_CONNECTION_NAME');
 	$db = getenv('CLOUD_SQL_DATABASE_NAME');
 
-	$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
+	$connection = @mysql_connect(null, $user, $pass, $db, null, $inst);
 
 if(!$connection)
 {
