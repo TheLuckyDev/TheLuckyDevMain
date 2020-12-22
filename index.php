@@ -122,10 +122,6 @@
 //
 //iaCore::instance()->init();
 
-/**
- *  @param $conn_config array driver-specific options for PDO
- */
-
 	$user = getenv('CLOUD_SQL_USERNAME');
 	$pass = getenv('CLOUD_SQL_PASSWORD');
 	$inst = getenv('CLOUD_SQL_CONNECTION_NAME');
