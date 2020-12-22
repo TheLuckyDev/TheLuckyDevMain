@@ -132,9 +132,11 @@
 	echo $inst;
 	echo $db;
 
-	$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
+$conn = mysql_connect($inst, $user, $pass);
 
-if(!$connection)
+	//$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
+
+if(!$conn)
 {
     echo "<div style='padding-left: 50px;color:#FF0000'>Cannot connect to specfied database!</div>";
 //    header("Location: install.php");
