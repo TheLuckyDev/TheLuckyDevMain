@@ -68,10 +68,17 @@ class iaDb extends PDO implements iaInterfaceDbAdapter
     {
         try {
 //            $dsn = 'mysql:host=' . INTELLI_DBHOST . ';dbname=' . INTELLI_DBNAME;
-            $this->_PDO = new PDO(INTELLI_CONNECT_DSN, INTELLI_DBUSER, INTELLI_DBPASS);
+            $dbConn = INTELLI_CONNECT;
+            $dbName = INTELLI_DBNAME;
+            $dbUser = INTELLI_DBUSER;
+            $dbPass = INTELLI_DBPASS;
+
+            $dsn = "mysql:unix_socket=/cloudsql/${dbConn};dbname=${dbName}";
+            $this->_PDO = new PDO($dsn, $dbUser, $dbPass);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
+            echo "PDO ERROR";
         }
 
         $this->query("SET NAMES 'utf8mb4'");
