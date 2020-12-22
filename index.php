@@ -149,7 +149,7 @@
         );
 
         // Connect to the database.
-        $conn = new PDO($dsn, $username, $password, $conn_config);
+        $conn = new PDO($dsn, $username, $password, $cloud_sql_connection_name);
         # [END cloud_sql_mysql_pdo_create_socket]
     } catch (TypeError $e) {
         echo $e;
