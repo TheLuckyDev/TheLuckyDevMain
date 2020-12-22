@@ -126,56 +126,9 @@
  *  @param $conn_config array driver-specific options for PDO
  */
 
-    $username = getenv('CLOUD_SQL_USERNAME');
-    $password = getenv('CLOUD_SQL_PASSWORD');
-    $db_name = getenv('CLOUD_SQL_DATABASE_NAME');
-    $cloud_sql_connection_name = getenv('CLOUD_SQL_CONNECTION_NAME');
-    $socket_dir = getenv('DB_SOCKET_DIR') ?: '/cloudsql';
+	$user = getenv('CLOUD_SQL_USERNAME');
+	$pass = getenv('CLOUD_SQL_PASSWORD');
+	$inst = getenv('CLOUD_SQL_CONNECTION_NAME');
+	$db = getenv('CLOUD_SQL_DATABASE_NAME');
 
-    try {
-        // # [START cloud_sql_mysql_pdo_create_socket]
-        // // $username = 'your_db_user';
-        // // $password = 'yoursupersecretpassword';
-        // // $db_name = 'your_db_name';
-        // // $cloud_sql_connection_name = getenv("CLOUD_SQL_CONNECTION_NAME");
-        // // $socket_dir = getenv('DB_SOCKET_DIR') ?: '/cloudsql';
-
-        // Connect using UNIX sockets
-        $dsn = sprintf(
-                'mysql:dbname=%s;unix_socket=%s/%s',
-                $db_name,
-                $socket_dir,
-                $cloud_sql_connection_name
-        );
-
-        // Connect to the database.
-        $conn = new PDO($dsn, $username, $password, $cloud_sql_connection_name);
-        # [END cloud_sql_mysql_pdo_create_socket]
-    } catch (TypeError $e) {
-        echo $e;
-        throw new RuntimeException(
-                sprintf(
-                        'Invalid or missing configuration! Make sure you have set ' .
-                        '$username, $password, $db_name, and $host (for TCP mode) ' .
-                        'or $cloud_sql_connection_name (for UNIX socket mode). ' .
-                        'The PHP error was %s',
-                        $e->getMessage()
-                ),
-                $e->getCode(),
-                $e
-        );
-    } catch (PDOException $e) {
-        echo $e;
-        throw new RuntimeException(
-                sprintf(
-                        'Could not connect to the Cloud SQL Database. Check that ' .
-                        'your username and password are correct, that the Cloud SQL ' .
-                        'proxy is running, and that the database exists and is ready ' .
-                        'for use. For more assistance, refer to %s. The PDO error was %s',
-                        'https://cloud.google.com/sql/docs/mysql/connect-external-app',
-                        $e->getMessage()
-                ),
-                $e->getCode(),
-                $e
-        );
-    }
+	$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
