@@ -59,6 +59,8 @@ define('FOLDER_URL', FOLDER != '' ? trim(str_replace(IA_DS, IA_URL_DELIMITER, FO
 
 $performInstallation = false;
 
+echo IA_HOME;
+
 if (file_exists(IA_INCLUDES . 'config.inc.php')) {
     include IA_INCLUDES . 'config.inc.php';
     defined('INTELLI_DEBUG') || $performInstallation = true;
