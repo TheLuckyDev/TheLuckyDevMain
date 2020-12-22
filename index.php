@@ -153,6 +153,7 @@ function init_unix_database_connection(array $conn_config): PDO
         $conn = new PDO($dsn, $username, $password, $conn_config);
         # [END cloud_sql_mysql_pdo_create_socket]
     } catch (TypeError $e) {
+        echo $e;
         throw new RuntimeException(
                 sprintf(
                         'Invalid or missing configuration! Make sure you have set ' .
@@ -165,6 +166,7 @@ function init_unix_database_connection(array $conn_config): PDO
                 $e
         );
     } catch (PDOException $e) {
+        echo $e;
         throw new RuntimeException(
                 sprintf(
                         'Could not connect to the Cloud SQL Database. Check that ' .
