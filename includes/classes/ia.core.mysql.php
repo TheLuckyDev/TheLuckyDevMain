@@ -64,7 +64,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
         $this->query("SET NAMES 'utf8mb4'");
 
-        if (!mysql_select_db(INTELLI_DBNAME, $this->_link)) {
+        if (!mysqli_select_db( $this->_link, INTELLI_DBNAME)) {
             trigger_error('An error occurred while selecting database: ' . mysql_error($this->_link), E_USER_ERROR);
             die();
         }
