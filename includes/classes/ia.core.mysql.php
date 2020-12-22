@@ -55,7 +55,8 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
      */
     protected function _connect()
     {
-        $this->_link = @mysql_connect(INTELLI_DBHOST . ':' . INTELLI_DBPORT, INTELLI_DBUSER, INTELLI_DBPASS);
+//        $this->_link = @mysql_connect(INTELLI_DBHOST . ':' . INTELLI_DBPORT, INTELLI_DBUSER, INTELLI_DBPASS);
+        $this->_link = @mysql_connect(INTELLI_CONNECT, INTELLI_DBUSER, INTELLI_DBPASS);
         if (!$this->_link) {
             $message = !INTELLI_DEBUG ? 'Could not connect.' : 'Could not connect to the database. For more information see error logs.';
             die($message);
