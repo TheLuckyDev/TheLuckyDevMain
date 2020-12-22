@@ -136,9 +136,9 @@
 	echo $inst;
 	echo $db;
 
-$conn = mysql_connect($inst, $user, $pass);
+//$conn = mysql_connect($inst, $user, $pass);
 
-	//$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
+	$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
 
 if(!$conn)
 {
