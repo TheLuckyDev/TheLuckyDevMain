@@ -4,8 +4,8 @@
  * Config file generated on 09 August 2020 23:27:48
  */
 
-define('INTELLI_CONNECT', 'mysqli');
-define('INTELLI_DBHOST',  getenv('CLOUD_SQL_CONNECTION_NAME'));
+define('INTELLI_CONNECT', getenv('CLOUD_SQL_CONNECTION_NAME'));
+define('INTELLI_DBHOST', null );
 define('INTELLI_DBUSER', getenv('CLOUD_SQL_USERNAME'));
 define('INTELLI_DBPASS',  getenv('CLOUD_SQL_PASSWORD'));
 define('INTELLI_DBNAME',  getenv('CLOUD_SQL_DATABASE_NAME'));
