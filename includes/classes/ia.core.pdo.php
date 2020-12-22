@@ -51,6 +51,7 @@ class iaDb extends PDO implements iaInterfaceDbAdapter
         $this->iaCore = iaCore::instance();
 
         $this->prefix = INTELLI_DBPREFIX;
+        echo "CONNECTION TEST";
         $this->_connect();
     }
 
