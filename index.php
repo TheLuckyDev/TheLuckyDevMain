@@ -127,7 +127,11 @@
 	$inst = getenv('CLOUD_SQL_CONNECTION_NAME');
 	$db = getenv('CLOUD_SQL_DATABASE_NAME');
 
+
+
+
 	echo $user;
+	echo $_SERVER['CLOUD_SQL_USERNAME'];
 	echo $pass;
 	echo $inst;
 	echo $db;
