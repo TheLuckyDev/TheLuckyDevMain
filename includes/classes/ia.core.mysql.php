@@ -65,7 +65,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
         $this->query("SET NAMES 'utf8mb4'");
 
         if (!mysqli_select_db( $this->_link, INTELLI_DBNAME)) {
-            trigger_error('An error occurred while selecting database: ' . mysql_error($this->_link), E_USER_ERROR);
+            trigger_error('An error occurred while selecting database: ' . mysqli_connect_error(), E_USER_ERROR);
             die();
         }
     }
@@ -87,7 +87,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
      */
     public function sql($string = '')
     {
-        return mysql_real_escape_string($string);
+        return mysqli_real_escape_string($this->_link, $string);
     }
 
     /**
@@ -175,7 +175,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
         }
 
         $timeStart = explode(' ', microtime());
-        $rs = mysql_query($sql, $this->_link);
+        $rs = mysqli_query($this->_link, $sql);
         $timeEnd = explode(' ', microtime());
 
         $start = $timeStart[1] + $timeStart[0];
@@ -189,8 +189,8 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
         }
 
         // 2013 - lost connection during the execution
-        if (!$rs && 2013 != mysql_errno()) {
-            $error = mysql_error();
+        if (!$rs && 2013 != mysqli_connect_errno()) {
+            $error = mysqli_connect_error();
             $error .= PHP_EOL . $sql;
 
             trigger_error($error, E_USER_WARNING);
@@ -225,7 +225,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
         $query = $this->query($sql);
         if ($this->getNumRows($query) > 0) {
-            $result = mysql_fetch_assoc($query);
+            $result = mysqli_fetch_assoc($query);
         }
 
         return $result;
@@ -241,7 +241,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
         $query = $this->query($sql);
         if ($this->getNumRows($query) > 0) {
-            while ($row = mysql_fetch_assoc($query)) {
+            while ($row = mysqli_fetch_assoc($query)) {
                 $result[] = $row;
             }
         }
@@ -255,7 +255,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
         $query = $this->query($sql);
         if ($this->getNumRows($query)) {
-            while ($row = mysql_fetch_assoc($query)) {
+            while ($row = mysqli_fetch_assoc($query)) {
                 $key = array_shift($row);
                 if ($singleRow) {
                     $result[$key] = $row;
@@ -274,7 +274,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
         $query = $this->query($sql);
         if ($this->getNumRows($query) > 0) {
-            $array = mysql_fetch_row($query);
+            $array = mysqli_fetch_row($query);
             $asArray = false;
             if (count($array) > 2) {
                 $result[$array[0]] = $array;
@@ -283,7 +283,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
                 $result[$array[0]] = $array[1];
             }
 
-            while ($array = mysql_fetch_row($query)) {
+            while ($array = mysqli_fetch_row($query)) {
                 $result[$array[0]] = $asArray ? $array : $array[1];
             }
         }
@@ -305,12 +305,12 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
      */
     public function getError()
     {
-        return mysql_error();
+        return mysqli_connect_error();
     }
 
     public function getErrorNumber()
     {
-        return mysql_errno($this->_link);
+        return mysqli_connect_errno();
     }
 
     public static function printf($pattern, array $replacements)
@@ -344,7 +344,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
 
     public function getInsertId()
     {
-        return mysql_insert_id($this->_link);
+        return mysqli_insert_id($this->_link);
     }
 
     /**
@@ -355,14 +355,14 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
         $table = empty($table) ? $this->_table : $table;
 
         $result = $this->query("SHOW TABLE STATUS LIKE '{$table}'");
-        $row = mysql_fetch_array($result);
+        $row = mysqli_fetch_array($result);
 
         return $row['Auto_increment'];
     }
 
     public function getAffected()
     {
-        return mysql_affected_rows($this->_link);
+        return mysqli_affected_rows($this->_link);
     }
 
     public function foundRows()

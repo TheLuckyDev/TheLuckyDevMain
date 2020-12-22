@@ -54,6 +54,9 @@ class iaLanguage
     {
         $iaCore = iaCore::instance();
 
+        echo $iaCore;
+        echo $iaCore->iaDb;
+
         // set list of available languages
         $iaCore->languages = $iaCore->iaDb->assoc(
             self::$_columns,
