@@ -66,76 +66,76 @@ if (file_exists(IA_INCLUDES . 'config.inc.php')) {
     $performInstallation = true;
 }
 
-//// redirect to installation
-//if ($performInstallation) {
-//    if (file_exists(IA_HOME . 'install/index.php')) {
-//        header('Location: ' . str_replace('index.php', 'install/', $_SERVER['SCRIPT_NAME']));
-//
-//        return;
-//    }
-//
-//    exit('Install directory was not found!');
-//}
-//
-///*$domain = explode(':', $_SERVER['HTTP_HOST']);
-//$domain = reset($domain);
-//
-//if (strpos($domain, '.') && !filter_var($domain, FILTER_VALIDATE_IP)) {
-//    $chunks = array_reverse(explode('.', $domain));
-//    if (count($chunks) > 2) {
-//        if (!in_array($chunks[1], ['co', 'com', 'net', 'org', 'gov', 'ltd', 'ac', 'edu'])) {
-//            $domain = implode('.', [$chunks[1], $chunks[0]]);
-//
-//            if ($chunks[2] != 'www') {
-//                $domain = implode('.', [$chunks[2], $chunks[1], $chunks[0]]);
-//            }
-//        }
-//    }
-//    $domain = '.' . $domain;
-//}*/
-//
-//ini_set('session.gc_maxlifetime', 1800); // 30 minutes
-////session_set_cookie_params(1800, '/', $domain, false, true);
-//session_name('INTELLI_' . substr(md5(IA_HOME), 0, 10));
-//session_start();
-//setcookie(session_name(), session_id(), time() + 1800, '/');
-//
-//require_once IA_CLASSES . 'ia.system.php';
-//require_once IA_INCLUDES . 'function.php';
-//
-//if (function_exists('spl_autoload_register')) {
-//    spl_autoload_register(['iaSystem', 'autoload']);
-//}
-//
-//iaSystem::renderTime('start');
-//
-//if (INTELLI_DEBUG) {
-//    register_shutdown_function(['iaSystem', 'shutdown']);
-//    ob_start(['iaSystem', 'output']);
-//} else {
-//    error_reporting(0);
-//}
-//
-//set_error_handler(['iaSystem', 'error']);
-//
-//iaSystem::renderTime('Core started');
-//
-//iaCore::instance()->init();
+// redirect to installation
+if ($performInstallation) {
+    if (file_exists(IA_HOME . 'install/index.php')) {
+        header('Location: ' . str_replace('index.php', 'install/', $_SERVER['SCRIPT_NAME']));
 
+        return;
+    }
 
-	$connection = mysqli_connect(INTELLI_DBHOST, INTELLI_DBUSER, INTELLI_DBPASS,
-            INTELLI_DBNAME, INTELLI_DBPORT);
+    exit('Install directory was not found!');
+}
 
-    if(!$connection)
-    {
-        echo "<div style='padding-left: 50px;color:#FF0000'>Cannot connect to specfied database!</div>";
-    }else{
-        echo('Connection Successful!');
-        /* Requête "Select" retourne un jeu de résultats */
-        if ($result = $connection->query("SELECT * FROM sbr421_pages")) {
-            printf("Select a retourné %d lignes.\n", $result->num_rows);
+/*$domain = explode(':', $_SERVER['HTTP_HOST']);
+$domain = reset($domain);
 
-            /* Libération du jeu de résultats */
-            $result->close();
+if (strpos($domain, '.') && !filter_var($domain, FILTER_VALIDATE_IP)) {
+    $chunks = array_reverse(explode('.', $domain));
+    if (count($chunks) > 2) {
+        if (!in_array($chunks[1], ['co', 'com', 'net', 'org', 'gov', 'ltd', 'ac', 'edu'])) {
+            $domain = implode('.', [$chunks[1], $chunks[0]]);
+
+            if ($chunks[2] != 'www') {
+                $domain = implode('.', [$chunks[2], $chunks[1], $chunks[0]]);
+            }
         }
     }
+    $domain = '.' . $domain;
+}*/
+
+ini_set('session.gc_maxlifetime', 1800); // 30 minutes
+//session_set_cookie_params(1800, '/', $domain, false, true);
+session_name('INTELLI_' . substr(md5(IA_HOME), 0, 10));
+session_start();
+setcookie(session_name(), session_id(), time() + 1800, '/');
+
+require_once IA_CLASSES . 'ia.system.php';
+require_once IA_INCLUDES . 'function.php';
+
+if (function_exists('spl_autoload_register')) {
+    spl_autoload_register(['iaSystem', 'autoload']);
+}
+
+iaSystem::renderTime('start');
+
+if (INTELLI_DEBUG) {
+    register_shutdown_function(['iaSystem', 'shutdown']);
+    ob_start(['iaSystem', 'output']);
+} else {
+    error_reporting(0);
+}
+
+set_error_handler(['iaSystem', 'error']);
+
+iaSystem::renderTime('Core started');
+
+iaCore::instance()->init();
+
+
+//	$connection = mysqli_connect(INTELLI_DBHOST, INTELLI_DBUSER, INTELLI_DBPASS,
+//            INTELLI_DBNAME, INTELLI_DBPORT);
+//
+//    if(!$connection)
+//    {
+//        echo "<div style='padding-left: 50px;color:#FF0000'>Cannot connect to specfied database!</div>";
+//    }else{
+//        echo('Connection Successful!');
+//        /* Requête "Select" retourne un jeu de résultats */
+//        if ($result = $connection->query("SELECT * FROM sbr421_pages")) {
+//            printf("Select a retourné %d lignes.\n", $result->num_rows);
+//
+//            /* Libération du jeu de résultats */
+//            $result->close();
+//        }
+//    }
