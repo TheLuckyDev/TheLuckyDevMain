@@ -67,14 +67,14 @@ class iaDb extends PDO implements iaInterfaceDbAdapter
     protected function _connect()
     {
         try {
-//            $dsn = 'mysql:host=' . INTELLI_DBHOST . ';dbname=' . INTELLI_DBNAME;
-            $dbConn = INTELLI_CONNECT;
-            $dbName = INTELLI_DBNAME;
-            $dbUser = INTELLI_DBUSER;
-            $dbPass = INTELLI_DBPASS;
-
-            $dsn = "mysql:unix_socket=/cloudsql/${dbConn};dbname=${dbName}";
-            $this->_PDO = new PDO($dsn, $dbUser, $dbPass);
+            $dsn = 'mysql:host=' . INTELLI_DBHOST . ';dbname=' . INTELLI_DBNAME;
+//            $dbConn = INTELLI_CONNECT;
+//            $dbName = INTELLI_DBNAME;
+//            $dbUser = INTELLI_DBUSER;
+//            $dbPass = INTELLI_DBPASS;
+//
+//            $dsn = "mysql:unix_socket=/cloudsql/${dbConn};dbname=${dbName}";
+            $this->_PDO = new PDO($dsn, INTELLI_DBUSER, INTELLI_DBPASS);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
