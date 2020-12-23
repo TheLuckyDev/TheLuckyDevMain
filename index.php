@@ -122,12 +122,9 @@
 //
 //iaCore::instance()->init();
 
-	$user = getenv('CLOUD_SQL_USERNAME');
-	$pass = getenv('CLOUD_SQL_PASSWORD');
-	$inst = getenv('CLOUD_SQL_CONNECTION_NAME');
-	$db = getenv('CLOUD_SQL_DATABASE_NAME');
 
-	$connection = mysqli_connect(null, $user, $pass, $db, null, $inst);
+	$connection = mysqli_connect(INTELLI_DBHOST, INTELLI_DBUSER, INTELLI_DBPASS,
+            INTELLI_DBNAME, INTELLI_DBPORT);
 
     if(!$connection)
     {
