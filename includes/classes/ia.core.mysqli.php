@@ -74,8 +74,7 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
                 INTELLI_DBUSER,
                 INTELLI_DBPASS,
                 INTELLI_DBNAME,
-                INTELLI_DBPORT,
-                INTELLI_CONNECT
+                INTELLI_DBPORT
             );
         } catch (Exception $e) {
             $this->_link = false;
