@@ -24,48 +24,48 @@
  *
  ******************************************************************************/
 
-//define('IA_VERSION', '4.2.1');
-//
-//if (defined('IA_INSTALL')) {
-//    return IA_VERSION;
-//}
-//
-//if (version_compare(PHP_VERSION, '5.6', '<')) {
-//    exit('Subrion ' . IA_VERSION . ' requires PHP 5.6 or higher to run properly.');
-//}
-//if (function_exists('apache_get_modules') && !in_array('mod_rewrite', apache_get_modules())) {
-//    exit('Subrion ' . IA_VERSION . ' requires the mod_rewrite module to run properly.');
-//}
-//
-//// enable errors display
-//ini_set('display_errors', true);
-//error_reporting(E_ALL | E_STRICT | E_DEPRECATED);
-//
-//// define system constants
-//define('IA_DS', '/');
-//define('IA_URL_DELIMITER', '/');
-//define('IA_HOME', str_replace('\\', IA_DS, dirname(__FILE__)) . IA_DS);
-//define('IA_INCLUDES', IA_HOME . 'includes/');
-//define('IA_CLASSES', IA_INCLUDES . 'classes/');
-//define('IA_MODULES', IA_HOME . 'modules/');
-//define('IA_UPLOADS', IA_HOME . 'uploads/');
-//define('IA_SMARTY', IA_INCLUDES . 'smarty/');
-//define('IA_TMP', IA_HOME . 'tmp/');
-//define('IA_CACHEDIR', IA_TMP . 'cache/');
-//define('IA_FRONT', IA_HOME . 'front/');
-//define('IA_ADMIN', IA_HOME . 'admin/');
-//define('FOLDER', trim(str_replace(IA_DS . 'index.php', '', $_SERVER['PHP_SELF']), IA_URL_DELIMITER));
-//define('FOLDER_URL', FOLDER != '' ? trim(str_replace(IA_DS, IA_URL_DELIMITER, FOLDER), IA_URL_DELIMITER) . IA_URL_DELIMITER : '');
-//
-//$performInstallation = false;
-//
-//if (file_exists(IA_INCLUDES . 'config.inc.php')) {
-//    include IA_INCLUDES . 'config.inc.php';
-//    defined('INTELLI_DEBUG') || $performInstallation = true;
-//} else {
-//    $performInstallation = true;
-//}
-//
+define('IA_VERSION', '4.2.1');
+
+if (defined('IA_INSTALL')) {
+    return IA_VERSION;
+}
+
+if (version_compare(PHP_VERSION, '5.6', '<')) {
+    exit('Subrion ' . IA_VERSION . ' requires PHP 5.6 or higher to run properly.');
+}
+if (function_exists('apache_get_modules') && !in_array('mod_rewrite', apache_get_modules())) {
+    exit('Subrion ' . IA_VERSION . ' requires the mod_rewrite module to run properly.');
+}
+
+// enable errors display
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT | E_DEPRECATED);
+
+// define system constants
+define('IA_DS', '/');
+define('IA_URL_DELIMITER', '/');
+define('IA_HOME', str_replace('\\', IA_DS, dirname(__FILE__)) . IA_DS);
+define('IA_INCLUDES', IA_HOME . 'includes/');
+define('IA_CLASSES', IA_INCLUDES . 'classes/');
+define('IA_MODULES', IA_HOME . 'modules/');
+define('IA_UPLOADS', IA_HOME . 'uploads/');
+define('IA_SMARTY', IA_INCLUDES . 'smarty/');
+define('IA_TMP', IA_HOME . 'tmp/');
+define('IA_CACHEDIR', IA_TMP . 'cache/');
+define('IA_FRONT', IA_HOME . 'front/');
+define('IA_ADMIN', IA_HOME . 'admin/');
+define('FOLDER', trim(str_replace(IA_DS . 'index.php', '', $_SERVER['PHP_SELF']), IA_URL_DELIMITER));
+define('FOLDER_URL', FOLDER != '' ? trim(str_replace(IA_DS, IA_URL_DELIMITER, FOLDER), IA_URL_DELIMITER) . IA_URL_DELIMITER : '');
+
+$performInstallation = false;
+
+if (file_exists(IA_INCLUDES . 'config.inc.php')) {
+    include IA_INCLUDES . 'config.inc.php';
+    defined('INTELLI_DEBUG') || $performInstallation = true;
+} else {
+    $performInstallation = true;
+}
+
 //// redirect to installation
 //if ($performInstallation) {
 //    if (file_exists(IA_HOME . 'install/index.php')) {
