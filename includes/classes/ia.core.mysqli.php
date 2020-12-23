@@ -70,11 +70,12 @@ class iaDb extends abstractUtil implements iaInterfaceDbAdapter
         try {
             mysqli_real_connect(
                 $this->_link,
-                INTELLI_DBHOST,
+                null,
                 INTELLI_DBUSER,
                 INTELLI_DBPASS,
                 INTELLI_DBNAME,
-                INTELLI_DBPORT
+                null,
+                INTELLI_CONNECT
             );
         } catch (Exception $e) {
             $this->_link = false;
